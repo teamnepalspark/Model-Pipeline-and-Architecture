@@ -1,0 +1,16 @@
+{
+  "name": "epi-dwi-correction",
+  "version": "1.0.0",
+  "description": "Deep learning pipeline for EPI DWI distortion correction",
+  "main": "src/train.py",
+  "scripts": {
+    "train": "python src/train.py",
+    "infer": "python src/infer.py",
+    "evaluate": "python src/evaluate.py"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": ["deep-learning", "medical-imaging", "dwi", "distortion-correction"],
+  "author": "",
+  "license": "MIT"
+}
