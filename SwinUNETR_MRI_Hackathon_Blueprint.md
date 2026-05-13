@@ -94,10 +94,12 @@ This can improve geometric realism, but only attempt after stable single-head re
 - Random Gaussian noise (low sigma)
 
 ### 4.3 Validation Metrics (Labeled Public Data)
-- PSNR
-- SSIM
-- MAE
-- NCC
+- Typical metrics:
+
+- SSIM: structural similarity (0–1, higher = better)
+- PSNR: peak signal-to-noise ratio (dB, higher = better)
+- MAE: mean absolute error (lower = better)
+- NCC: normalized cross-correlation (higher = better)
 - Optional: Jacobian regularity if deformation field is predicted
 
 Leaderboard-style composite:
