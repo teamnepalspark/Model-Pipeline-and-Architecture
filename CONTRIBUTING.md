@@ -1,6 +1,4 @@
-# Team Collaboration Guide for Hackathon
 
-This document outlines how to collaborate on the SwinUNETR MRI Distortion Correction project for the hackathon.
 
 ## Repository Structure
 
@@ -106,26 +104,26 @@ Examples:
 
 ## Key Development Tasks
 
-### Phase 1: Baseline Reproduction (Week 1)
+### Phase 1: Baseline Reproduction
 - [ ] Verify smoke test passes on all machines
 - [ ] Add more labeled training subjects to `data/`
 - [ ] Regenerate manifests with full dataset
 - [ ] Run full baseline training (20 epochs first)
 - [ ] Create quantitative results table
 
-### Phase 2: SwinUNETR Optimization (Week 2)
+### Phase 2: SwinUNETR Optimization
 - [ ] Ablation study (loss components)
 - [ ] Hyperparameter tuning (LR, batch size, patch size)
 - [ ] Compare against baseline on validation set
 - [ ] Document improvements
 
-### Phase 3: Clinical Validation (Week 3)
+### Phase 3: Clinical Validation 
 - [ ] Prepare clinician scoring UI/CSV template
 - [ ] Run inference on local unlabeled dataset
 - [ ] Collect blinded clinician ratings
 - [ ] Aggregate inter-rater agreement metrics
 
-### Phase 4: Presentation & Deployment (Final)
+### Phase 4: Presentation & Deployment
 - [ ] Create stage presentation slides
 - [ ] Generate before/after qualitative panels
 - [ ] Prepare demo notebook for Colab
@@ -190,58 +188,5 @@ python run_pipeline.py --python_bin python --config configs/swinunetr_smoke.yaml
 python -m compileall src run_pipeline.py
 ```
 
-## Pull Request Review Checklist
 
-When opening a PR:
-- [ ] Code is syntactically valid (runs `compileall`).
-- [ ] Commit messages are descriptive.
-- [ ] No large data files or outputs committed.
-- [ ] Related manifests are updated if data changed.
-- [ ] Brief description of what was changed and why.
 
-## Communication Channels
-
-- **Slack/Discord**: Daily updates, quick questions.
-- **GitHub Issues**: Feature requests, bugs, design discussions.
-- **GitHub Pull Requests**: Code review and team feedback.
-- **Weekly sync**: Monday 10 AM (optional, or as needed).
-
-## GitHub Remote Setup
-
-After creating a repository on GitHub:
-
-```powershell
-git remote add origin https://github.com/YourUsername/Model-and-Pipeline.git
-git branch -M master main
-git push -u origin main
-git push -u origin hackathon/swinunetr-distortion-correction
-```
-
-## Troubleshooting
-
-### "fatal: not a git repository"
-```powershell
-cd "Model and Pipeline"
-git status
-```
-
-### Merge conflicts
-```powershell
-git status                    # See conflicted files
-# Edit files to resolve conflicts
-git add <resolved-files>
-git commit -m "Resolve merge conflicts"
-git push origin <branch-name>
-```
-
-### Accidental commit to wrong branch
-```powershell
-git log --oneline -3          # Find the commit hash
-git cherry-pick <commit-hash> # Apply to correct branch
-git reset --hard HEAD~1       # Remove from wrong branch
-```
-
----
-
-**Last Updated**: May 13, 2026  
-**Contact**: Team Lead <email>
