@@ -21,6 +21,15 @@ This project implements a hackathon-ready MRI distortion-correction pipeline usi
 - Primary config: `configs/swinunetr_baseline.yaml`
 - Smoke config: `configs/swinunetr_smoke.yaml`
 
-## Colab
+### Colab
 
 Use notebook: `notebooks/colab_swinunetr_pipeline.ipynb`
+- When a notebook is useful:
+
+- Quick demos, exploratory analysis, visualization, or interactive Colab demos for judges.
+- Sharing runnable examples with non-technical reviewers (Colab).
+  
+### Recommendation:
+
+Keep run_pipeline.py and src/* as the canonical, reproducible interface.
+Also keep a lightweight Colab notebook for demos and presentation (add to notebooks).
