@@ -1,0 +1,5 @@
+id,rater_id,method,distortion_skull_base,distortion_temporal_lobe,alignment_t1,lesion_confidence,overall_acceptability,comments
+case_001,rater_a,baseline,,,,,,
+case_001,rater_a,swinunetr,,,,,,
+case_001,rater_b,baseline,,,,,,
+case_001,rater_b,swinunetr,,,,,,

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "hcp_0001",
+    "t1": "D:/path/to/hcp_0001_t1.nii.gz",
+    "b0_distorted": "D:/path/to/hcp_0001_b0_distorted.nii.gz",
+    "b0_corrected": "D:/path/to/hcp_0001_b0_corrected_gt.nii.gz"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "100206",
+    "t1": "data\\100206\\100206\\T1.nii.gz",
+    "b0_distorted": "data\\100206\\100206\\b0.nii.gz",
+    "b0_corrected": "data\\100206\\100206\\b0_u.nii.gz"
+  }
+]

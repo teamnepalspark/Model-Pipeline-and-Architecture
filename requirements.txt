@@ -1,0 +1,9 @@
+torch
+monai
+nibabel
+numpy
+pandas
+scikit-image
+pyyaml
+tqdm
+einops

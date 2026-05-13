@@ -1,0 +1,72 @@
+project:
+  name: mri_distortion_correction_swinunetr_smoke
+  seed: 42
+  deterministic: true
+
+data:
+  train_manifest: data/manifests/train.json
+  val_manifest: data/manifests/val.json
+  test_manifest: data/manifests/val.json
+  input_keys: [t1, b0_distorted]
+  target_key: b0_corrected
+  orientation: LAS
+  spacing: [1.5, 1.5, 1.5]
+  patch_size: [64, 64, 64]
+  cache_rate: 1.0
+  num_workers: 0
+
+model:
+  name: swinunetr
+  in_channels: 2
+  out_channels: 1
+  feature_size: 24
+  depths: [2, 2, 2, 2]
+  num_heads: [3, 6, 12, 24]
+  dropout_rate: 0.0
+  attn_drop_rate: 0.0
+  dropout_path_rate: 0.1
+  use_checkpoint: false
+
+loss:
+  l1_weight: 0.5
+  ssim_weight: 0.25
+  grad_weight: 0.15
+  ncc_weight: 0.10
+
+optimizer:
+  name: adamw
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  betas: [0.9, 0.999]
+
+scheduler:
+  name: cosine_with_warmup
+  warmup_epochs: 0
+  max_epochs: 1
+
+train:
+  amp: false
+  batch_size: 1
+  grad_accum_steps: 1
+  grad_clip_norm: 1.0
+  validate_every: 1
+  early_stopping_patience: 5
+  save_top_k: 1
+
+augment:
+  flip_prob: 0.0
+  rotate_deg: 0
+  intensity_gamma_prob: 0.0
+  gaussian_noise_prob: 0.0
+  bias_field_prob: 0.0
+
+inference:
+  sw_batch_size: 1
+  overlap: 0.25
+  mode: gaussian
+  output_space: native
+  export_onnx: false
+
+evaluation:
+  metrics: [ssim, psnr, mae, ncc]
+  clinical_rubric_scale: 1_to_5

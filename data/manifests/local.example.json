@@ -1,0 +1,7 @@
+[
+  {
+    "id": "local_0001",
+    "t1": "D:/path/to/local_0001_t1.nii.gz",
+    "b0_distorted": "D:/path/to/local_0001_b0_distorted.nii.gz"
+  }
+]
