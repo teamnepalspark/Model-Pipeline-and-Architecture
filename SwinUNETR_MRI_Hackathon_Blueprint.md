@@ -4,19 +4,6 @@
 
 Goal: Correct geometric distortion in single-shot EPI DWI (especially b0) using paired T1 + distorted b0 input, then optionally pass corrected synthesis into FSL TOPUP-style downstream correction.
 
-From your project brief:
-- Baseline: 3D U-Net (2-channel input: T1 + distorted b0, 1-channel output: undistorted b0).
-- Public training source: HCP-like data with correction-derived targets.
-- Local Kathmandu dataset (289 subjects): no ground-truth undistorted labels, used for inference + clinician qualitative scoring.
-- Critical challenge: heavy preprocessing and registration causing slow turnaround.
-
-Winning approach:
-- Keep baseline reproducibility for credibility.
-- Build SwinUNETR as a drop-in backbone replacement with strict ablation protocol.
-- Optimize runtime pipeline (cache, patching, mixed precision, async preprocessing).
-- Create a robust clinician evaluation scorecard and aggregate metric for unlabeled local data.
-- Deliver both quantitative (public labeled set) and qualitative (local clinical) wins.
-
 ## 2) Data Design
 
 ### 2.1 Input/Target Definition
@@ -190,29 +177,29 @@ Report each on:
 - Local clinician score
 - Inference time per subject
 
-## 9) Two-Week Hackathon Execution Plan
+## 9) Hackathon Execution Plan
 
-### Days 1-2
+### 1
 - Reproduce baseline 3D U-Net pipeline and metrics.
 - Freeze preprocessing conventions and data split.
 
-### Days 3-5
+### 2
 - Train SwinUNETR v1 (L1 or L1+SSIM).
 - Validate and compare with baseline.
 
-### Days 6-8
+### 3
 - Add full composite loss and augmentation tuning.
 - Launch 5-fold or reduced-fold (if compute-limited) runs.
 
-### Days 9-10
+### 4
 - Integrate efficient inference + cache + optional TOPUP chain.
 - Prepare clinician scoring package.
 
-### Days 11-12
+### 5
 - Clinician blinded evaluation.
 - Aggregate quantitative + qualitative results.
 
-### Days 13-14
+### 6
 - Final ablation table, visuals, and demo story.
 - Build a concise presentation emphasizing clinical impact in low-resource settings.
 
@@ -238,7 +225,7 @@ Report each on:
 
 ## Quick Start Recommendation
 
-If you need one highest-probability path:
+If we need one highest-probability path:
 1. Implement SwinUNETR single-head (2->1 channels) with composite loss.
 2. Focus on preprocessing cache + fast affine registration.
 3. Run strong baseline comparison and clinician-blinded rubric.
